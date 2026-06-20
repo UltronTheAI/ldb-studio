@@ -1,13 +1,22 @@
-# LDB Studio Static Export
+# LioranDB Studio (Template)
 
-A pre-rendered static export of the LioranDB Studio dashboard and login interface.
+Next.js (App Router) template for the LioranDB Studio UI. Uses `@liorandb/driver` for all database + admin operations (CRUD, aggregates, indexes, maintenance, docs, users).
 
-## Contents
+## Dev
 
-- `index.html`, `login.html`, and `dashboard.html` — entry pages
-- `_next/` — generated Next.js assets
-- `*.txt` — React Server Component payloads
+```bash
+npm run dev
+```
 
-## Usage
+Open `http://localhost:3000`.
 
-Serve the directory with a static HTTP server. This repository contains generated output rather than the original application source, so development changes should be made in the source project and exported again.
+## Login modes
+
+- Credentials: `http(s)://host:port` + username/password
+- URI: `lioran://user:pass@host:port` or `liorandb://dbUser:dbPass@host:port/database`
+- Token: `http(s)://host:port` + JWT token
+
+## Query editor
+
+- **Find** expects a JSON object filter (example: `{"status":"active"}`)
+- **Aggregate** expects a JSON array pipeline (example: `[{ "$match": {} }, { "$limit": 100 }]`)
